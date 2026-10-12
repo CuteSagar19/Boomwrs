@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="top-bar">
+                <div class="logo">Boomwrs</div>
+                <div class="user-info">
+                                Hi, {{ username }} | <a href="/logout">Logout</a>
+                </div>
+</header>
+
+{% if state.status != 'playing' and state.confetti %}
+<div class="confetti-container">
+                {% for piece in state.confetti %}
+                <div class="confetti" style="{{ piece }}"></div>
+                {% endfor %}
+</div>
+{% endif %}
+
+<div class="game-container" style="--word-length: {{ word_length }};">
+                <div class="board">
+                                {% for row_idx in range(6) %}
+                                                {% set is_active_row = (row_idx == state.guesses|length and state.status == 'playing') %}
+                                                {% set is_just_submitted = (row_idx == (state.guesses|length - 1) and state.new_row) %}
+                                                
+                                                <div class="board-row {% if is_active_row and state.message == 'No such word is present' %}shake{% endif %}">
+                                                                {% if row_idx < state.guesses|length %}
+                                                                                {# Past guesses #}
+                                                                                {% set guess_tiles = board[row_idx] %}
+                                                                                {% for i in range(word_length) %}
+                                                                                                <div class="tile {{ guess_tiles[i].score }} {% if is_just_submitted %}flip{% endif %}" 
+                                                                                                                    style="--delay: {{ i * 0.1 }}s;">
+                                                                                                                {{ guess_tiles[i].letter }}
+                                                                                                </div>
+                                                                                {% endfor %}
+                                                                {% elif is_active_row %}
+                                                                                {# Current draft #}
+                                                                                {% for i in range(word_length) %}
+                                                                                                {% if i < state.draft|length %}
+                                                                                                                <div class="tile draft">{{ state.draft[i] }}</div>
+                                                                                                {% else %}
+                                                                                                                <div class="tile empty"></div>
+                                                                                                {% endif %}
+                                                                                {% endfor %}
+                                                                {% else %}
+                                                                                {# Future rows #}
+                                                                                {% for i in range(word_length) %}
+                                                                                                <div class="tile empty"></div>
+                                                                                {% endfor %}
+                                                                {% endif %}
+                                                </div>
+                                {% endfor %}
+                </div>
+                
+                <div class="message-line">
+                                {{ state.message }}
+                </div>
+                
+                {% if state.status == 'playing' %}
+                                <form method="POST" action="/key" class="keyboard">
+                                                <div class="keyboard-row">
+                                                                {% for key in ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'] %}
+                                                                                <button type="submit" name="key" value="{{ key }}" class="key {{ keyboard_colors[key] }}">{{ key }}</button>
+                                                                {% endfor %}
+                                                </div>
+                                                <div class="keyboard-row">
+                                                                {% for key in ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'] %}
+                                                                                <button type="submit" name="key" value="{{ key }}" class="key {{ keyboard_colors[key] }}">{{ key }}</button>
+                                                                {% endfor %}
+                                                </div>
+                                                <div class="keyboard-row">
+                                                                <button type="submit" name="key" value="ENTER" class="key action">ENTER</button>
+                                                                {% for key in ['z', 'x', 'c', 'v', 'b', 'n', 'm'] %}
+                                                                                <button type="submit" name="key" value="{{ key }}" class="key {{ keyboard_colors[key] }}">{{ key }}</button>
+                                                                {% endfor %}
+                                                                <button type="submit" name="key" value="DELETE" class="key action">DEL</button>
+                                                </div>
+                                </form>
+                                
+                                <form method="POST" action="/typed" class="typed-form">
+                                                <label for="typed-word">Or type the whole word:</label>
+                                                <input type="text" id="typed-word" name="word" class="input-typed" autofocus>
+                                                <button type="submit" class="btn-submit">Submit</button>
+                                </form>
+                {% else %}
+                                <div class="end-screen">
+                                                {% if state.status == 'lost' %}
+                                                                <div class="reveal-panel">The word was {{ state.answer|upper }}</div>
+                                                {% endif %}
+                                                <a href="/play" class="btn-play">Play Again</a>
+                                </div>
+                {% endif %}
+</div>
+{% endblock %}
