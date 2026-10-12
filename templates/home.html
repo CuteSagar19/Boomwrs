@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="home-container">
+    <div class="wordmark">
+        <div class="tile pop-in" style="--delay: 0.1s">B</div>
+        <div class="tile pop-in" style="--delay: 0.2s">O</div>
+        <div class="tile pop-in" style="--delay: 0.3s">O</div>
+        <div class="tile pop-in" style="--delay: 0.4s">M</div>
+        <div class="tile pop-in" style="--delay: 0.5s">W</div>
+        <div class="tile pop-in" style="--delay: 0.6s">R</div>
+        <div class="tile pop-in" style="--delay: 0.7s">S</div>
+    </div>
+    
+    <h2>Pick a name and start guessing</h2>
+    
+    {% if error %}
+    <p class="message">{{ error }}</p>
+    {% endif %}
+    
+    <form method="POST" action="/" class="home-form">
+        {% if username %}
+            <input type="text" name="username" value="{{ username }}" class="input-name" required>
+        {% else %}
+            <input type="text" name="username" placeholder="your name" class="input-name" required>
+        {% endif %}
+        <button type="submit" class="btn-play">Play</button>
+    </form>
+</div>
+{% endblock %}
