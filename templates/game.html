@@ -78,7 +78,7 @@
                                 
                                 <form method="POST" action="/typed" class="typed-form">
                                                 <label for="typed-word">Or type the whole word:</label>
-                                                <input type="text" id="typed-word" name="word" class="input-typed" autofocus>
+                                                <input type="text" id="typed-word" name="word" class="input-typed" value="{{ state.draft }}" maxlength="{{ word_length }}" autocomplete="off" autofocus>
                                                 <button type="submit" class="btn-submit">Submit</button>
                                 </form>
                 {% else %}
@@ -90,4 +90,12 @@
                                 </div>
                 {% endif %}
 </div>
+
+{% if state.status == 'playing' %}
+<script>
+  const box = document.getElementById("typed-word");
+  box.focus();
+  box.setSelectionRange(box.value.length, box.value.length);
+</script>
+{% endif %}
 {% endblock %}
