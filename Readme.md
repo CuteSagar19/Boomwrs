@@ -25,20 +25,21 @@ Make sure you have the following installed on your system:
 
 <h2>Installation & Setup</h2>
 1.Clone the repository:
-Use command: git clone https://github.com/CuteSagar19/Boomwrs.git
-Then
-Open your terminal or Code Editor terminal.
-cd Boomwrs or cs /path/Boomwrs
+Use command:                                           
+git clone https://github.com/CuteSagar19/Boomwrs.git     
+Then                                                    
+Open your terminal or Code Editor terminal. Then Run:          
+cd Boomwrs or cs /path/Boomwrs                      
 
 2. Create a virtual Environment
    It is recommended to use virtual environment of python for cleaner management of dependencies.
    Run the following in your terminal:
    
-   -ON WINDOWS:   
+   ON WINDOWS:   
    python -m venv
    venv\Scripts\activate.ps1
 
-   -ON macOS/Linux:   
+   ON macOS/Linux:   
    python3 -m venv venv
    source venv/bin/activate
 
