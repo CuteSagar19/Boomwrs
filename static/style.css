@@ -105,6 +105,144 @@ h2 {
     height: 24px;
     margin: 8px 0;
 }
+/* Game Screen */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-wrong-key);
+    padding-bottom: 10px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--color-green);
+}
+
+.user-info a {
+    color: var(--color-white);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.board-row {
+    display: grid;
+    grid-template-columns: repeat(var(--word-length), 1fr);
+    gap: 8px;
+}
+
+.tile {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+.tile.empty {
+    border: 2px solid var(--color-wrong-key);
+    box-sizing: border-box;
+}
+
+.tile.draft {
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+    box-sizing: border-box;
+}
+
+.tile.green {
+    background-color: var(--color-green);
+    color: var(--tile-text);
+}
+
+.tile.orange {
+    background-color: var(--color-orange);
+    color: var(--tile-text);
+}
+
+.tile.white {
+    background-color: var(--color-white);
+    color: var(--tile-text);
+}
+
+.message-line {
+    height: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Keyboard */
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.key {
+    height: 58px;
+    min-width: 40px;
+    flex: 1;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: var(--color-unused);
+    color: var(--tile-text);
+    padding: 0;
+}
+
+.key.action {
+    flex: 1.5;
+    font-size: 12px;
+}
+
+.key.green {
+    background-color: var(--color-green);
+}
+
+.key.orange {
+    background-color: var(--color-orange);
+}
+
+.key.white {
+    background-color: var(--color-wrong-key);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.typed-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
 
 /* Animations */
 .shake {
