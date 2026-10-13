@@ -1,3 +1,5 @@
 wordfreq
 nltk
 flask
+python-dotenv
+gunicorn
