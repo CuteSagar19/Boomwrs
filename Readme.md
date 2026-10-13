@@ -15,11 +15,11 @@ Make sure you have the following installed on your system:
 - Python ( v3.8 or later)                    
 - pip (Python package Manager)
 <h3>Required Python Dependencies:</h3>
-nltk                                       
-flask                                    
-wordfreq                                            
-dotenv ( optional - for setting up .env file for hidden / secret keys )       
-gunicorn (optional - for setting up in own hosting service )      
+ -nltk                                       
+ -flask                                    
+ -wordfreq                                            
+ -dotenv ( optional - for setting up .env file for hidden / secret keys )       
+ -gunicorn (optional - for setting up in own hosting service )      
 
 <h2>Installation & Setup</h2>
 1.Clone the repository:
