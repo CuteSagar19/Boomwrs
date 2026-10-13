@@ -5,3 +5,9 @@ Boomwrs is a primarily terminal based wordle game which now has been connected a
 
 Contributors and more:
 The major contributor of the project is Hidwen which is also my another github account. But since i had removed my os to install new but stored previous files, git thought i was the same old user with that username and stored it as contributor which i didnt noticed. So the contributors for this project is Hidwen and CuteSagar19 or Me and Myself. Sorry if this confuses you all.
+
+
+<img width="717" height="550" alt="Screenshot 2026-10-13 214301" src="https://github.com/user-attachments/assets/ee7c98a1-ff16-45c6-8640-769bab3f9fa9" />
+
+
+<img width="912" height="863" alt="Screenshot 2026-10-13 215130" src="https://github.com/user-attachments/assets/d0cab704-d4a6-4658-be24-57a5ea37ad52" />
