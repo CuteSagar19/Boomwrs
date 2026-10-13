@@ -31,17 +31,18 @@ cd Boomwrs or cs /path/Boomwrs
 2. Create a virtual Environment
    It is recommended to use virtual environment of python for cleaner management of dependencies.
    Run the following in your terminal:
-   -ON WINDOWS
+   
+   -ON WINDOWS:   
    python -m venv
    venv\Scripts\activate.ps1
 
-   -ON macOS/Linux:
+   -ON macOS/Linux:   
    python3 -m venv venv
    source venv/bin/activate
 
-3. Install Python Dependencies:
+4. Install Python Dependencies:
    Run: pip install -r requirements.txt
-4. <h2>Run the APP</h2>
+5. <h2>Run the APP</h2>
   <h5>To play in terminal:</h5> Run py main.py ( to play the wordle game on console or terminal )
   <h5>To have web experience</h5>: Run py app.py ( to run the python environment and whole program as a web experience. After running the command, head to the url http://127.0.0.1/5000 on your web browser to play the game.)
 
