@@ -12,8 +12,10 @@ Interfaces:
 
 <h3>Prerequisties</h3>
 Make sure you have the following installed on your system:
-- Python ( v3.8 or later)                    
-- pip (Python package Manager)
+<ul>
+<li>Python ( v3.8 or later)</li>                  
+<li>pip (Python package Manager)</li>
+</ul>
 <h3>Required Python Dependencies:</h3>
 <ul>
 <li>-nltk</li>                                  
@@ -29,7 +31,7 @@ Use command:
 git clone https://github.com/CuteSagar19/Boomwrs.git     
 Then                                                    
 Open your terminal or Code Editor terminal. Then Run:          
-cd Boomwrs or cs /path/Boomwrs                      
+cd Boomwrs or cd /path/Boomwrs                      
 
 2. Create a virtual Environment
    It is recommended to use virtual environment of python for cleaner management of dependencies.
