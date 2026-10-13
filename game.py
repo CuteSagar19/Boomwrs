@@ -84,14 +84,4 @@ def keyboard_colors(guesses, answer):
                 
     return colors
 
-#for console/terminal testing only
 
-if __name__ == "__main__":
-    print("Testing LEVEL vs HOTEL:")
-    print(score_guess("level", "hotel"))
-    
-    print("Testing APPLE vs ALLEY:")
-    print(score_guess("apple", "alley"))
-    
-    print("Testing MATCH vs MATCH:")
-    print(score_guess("match", "match"))
